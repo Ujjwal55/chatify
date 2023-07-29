@@ -1,7 +1,8 @@
 import MessageModel from "../models/MessageModel.js";
 
 export const addMessage = async (req, res) => {
-        const { chatId, senderId, text } = req.body;
+        const { chatId, text } = req.body;
+        const senderId = req.userId;
         const message = new MessageModel({
             chatId,
             senderId,
@@ -20,7 +21,7 @@ console.log("meeee", MessageModel)
 export const getMessages = async (req, res) => {
     const { chatId } = req.params;
     try{
-        const result = await MessageModel.find({ chatId });
+        const result = await MessageModel.find({ chatId, senderId: req.userId  });
         console.log("ress", result)
         res.status(200).json(result);
     } catch(error){

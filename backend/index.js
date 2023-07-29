@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 
 import ChatRoute from  "./routes/ChatRoute.js"
 import MessageRoute from "./routes/MessageRoute.js"
+import UserRoute from "./routes/UserRoute.js"
 
 const app = express();
 app.use(bodyParser.json({ extended: true }));
@@ -17,9 +18,8 @@ app.listen(process.env.PORT, () => {
     console.log(`Server running on port: ${PORT}`);
 })
 
-console.log("proc", process.env.MONGO_URL)
+mongoose.connect("mongodb+srv://agarwalujjwal698:H0Cq54ZqPDSuKitL@cluster0.flgv5h1.mongodb.net/?retryWrites=true&w=majority", {})
 
-mongoose.connect(process.env.MONGO_URL, {})
-
+app.use("/users", UserRoute)
 app.use("/chat", ChatRoute)
 app.use("/message", MessageRoute)

@@ -6,6 +6,7 @@ const MessageSchema = mongoose.Schema({
     },
     senderId: {
         type: String,
+        required: true,
     },
     text: {
         type: String,

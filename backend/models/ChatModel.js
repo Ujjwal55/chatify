@@ -5,6 +5,9 @@ const ChatSchema = mongoose.Schema(
         members: {
             type: Array,
         },
+        userIds: {
+            type: Array,
+        },
     },
     {
         timestamps: true,

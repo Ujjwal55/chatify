@@ -1,10 +1,16 @@
 import jwt from 'jsonwebtoken';
-import User from '../Models/User.js';
+import { verifyToken } from '../utils/jwtUtil.js';
 
-const auth = async (req, res, next) => {
+export const auth = async (req, res, next) => {
+    const token = req.header("Authorization");
+    if(!token){
+        return res.status(401).json({ message: "Unauthorized: Missing token" })
+    }
     try{
-        // some code
+        const decoded = verifyToken(token);
+        req.userId = decoded.userId;
+        next();
     } catch(error){
-        // some code
+        return res.status(401).json({ message: "Unauthorized: Invalid token" })
     }
 }
