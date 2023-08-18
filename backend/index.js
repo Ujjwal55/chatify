@@ -2,6 +2,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cors from "cors";
+import socket from "socket.io";
 
 import ChatRoute from  "./routes/ChatRoute.js"
 import MessageRoute from "./routes/MessageRoute.js"
@@ -20,6 +22,18 @@ app.listen(process.env.PORT, () => {
 
 mongoose.connect("mongodb+srv://agarwalujjwal698:H0Cq54ZqPDSuKitL@cluster0.flgv5h1.mongodb.net/?retryWrites=true&w=majority", {})
 
-app.use("/users", UserRoute)
+app.use(cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+}));
+const io = socket(app, {
+    cors: {
+        origin: process.env.CLIENT_URL,
+        credentials: true,
+    }
+})
+
+
+app.use("/", UserRoute)
 app.use("/chat", ChatRoute)
 app.use("/message", MessageRoute)

@@ -1,0 +1,15 @@
+.rooms-container{
+    border: 1px solid #ccc;
+    background-color: black;
+    cursor: pointer;
+}
+
+.room{
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    max-width: 500px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
