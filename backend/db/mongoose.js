@@ -1,8 +1,8 @@
-// import mongoose from "mongoose";
-// import dotenv from "dotenv";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-// dotenv.config();
+dotenv.config();
 
-// MONGO_URL = process.env.MONGO_URL || "localhost:27017";
+MONGO_URL = process.env.MONGO_URL || "localhost:27017";
 
-// mongoose.connect(process.env.MONGO_URL, {})
+mongoose.connect(process.env.MONGO_URL, {})

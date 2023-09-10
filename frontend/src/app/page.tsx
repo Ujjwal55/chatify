@@ -2,6 +2,7 @@ import Image from 'next/image'
 import axios from 'axios'
 import Logo from "../../public/images/logo.png"
 import styles from "./page.module.css"
+import { useState } from 'react';
 
 export default function Home() {
   axios.defaults.baseURL = 'http://localhost:5000';

@@ -2,9 +2,14 @@
 import React from 'react'
 import styles from "./messageForm.module.css"
 import {AiOutlineSend} from "react-icons/ai"
+import { useSelector } from 'react-redux'
 
 const MessageForm = () => {
+  const user = useSelector(state => state.user);
   const handleSubmit = (e) => {
+  }
+  if(!user){
+    return <div className={styles.loginMessage}>Please Login to send messages</div>
   }
   return (
     <>

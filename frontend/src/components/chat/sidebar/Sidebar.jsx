@@ -1,8 +1,13 @@
 import React from 'react'
 import styles from "./sidebar.module.css"
+import { useSelector } from 'react-redux';
 
 function Sidebar() {
     const rooms = ['first room', 'second room', 'second room'];
+    const user = useSelector(state => state.user);
+    if(!user){
+        return <div className={styles.loginMessage}>Please Login to see members</div>
+    }
   return (
     <div>
         <h2>Available Rooms</h2>

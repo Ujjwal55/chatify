@@ -2,6 +2,8 @@
 import Link from 'next/link'
 import React from 'react'
 import styles from './navbar.module.css'
+import { useSelector } from 'react-redux';
+import { useRouter } from "next/navigation";
 
 const links = [
     {
@@ -17,6 +19,8 @@ const links = [
 ]
 
 const Navbar = () => {
+    const router = useRouter();
+    const user = useSelector((state) => state.user);
   return (
     <div className={styles.container}>
         <Link href="/" className={styles.logo}>Chatify</Link>
@@ -26,7 +30,15 @@ const Navbar = () => {
                     {link.title}
                 </Link>
             ))}
-            <button type="button" className={styles.logout} onClick={() => {}}>logout</button>
+            {user && (
+                <button type="button" className={styles.logout} onClick={() => {}}>logout</button>
+            )}
+            {!user && (
+                <>
+                <button type="button" className={styles.logout} onClick={() => router.push("/chat/register")}>register</button>
+                <button type="button" className={styles.logout} onClick={() => router.push("/chat/login")}>login</button>
+                </>
+            )}
         </div>
     </div>
   )
