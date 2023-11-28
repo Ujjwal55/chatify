@@ -20,13 +20,6 @@ const MessageForm = () => {
           <AiOutlineSend />
         </button>
     </div>
-    <div className={styles.chatContainer}></div>
-    <div className={styles.messageOutput}>
-        <input type="text" placeholder="Your Message" className={styles.input}/>
-        <button type="submit"  className={styles.sendIcon} onClick={handleSubmit}>
-          <AiOutlineSend />
-        </button>
-    </div>
     </>
   )
 }
