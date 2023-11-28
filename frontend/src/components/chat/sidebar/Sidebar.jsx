@@ -13,7 +13,7 @@ function Sidebar() {
         <h2>Available Rooms</h2>
         <div className={styles["rooms-container"]}>
         {Rooms.map(room => {
-          let a = "";
+          let a = ""
             return <div  className={styles.room}>{room || ""}</div>
         }
         )}
