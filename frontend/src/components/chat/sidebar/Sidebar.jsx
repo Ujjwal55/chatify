@@ -12,8 +12,8 @@ function Sidebar() {
     <div>
         <h2>Available Rooms</h2>
         <div className={styles["rooms-container"]}>
-        {Rooms.forEach(room => {
-            return <div className={styles.room}>{room}</div>
+        {Rooms.map(room => {
+            return <div className={styles.room}>{room || ""}</div>
         }
         )}
         </div>
