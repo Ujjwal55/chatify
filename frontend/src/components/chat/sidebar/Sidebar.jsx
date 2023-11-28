@@ -18,6 +18,7 @@ function Sidebar() {
         )}
         </div>
         <h2>Members</h2>
+        <h2>Members</h2>
     </div>
   )
 }
